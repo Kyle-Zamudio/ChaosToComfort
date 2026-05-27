@@ -300,6 +300,19 @@
     .rating-hero { flex-direction: column; gap: 16px; text-align: center; }
   }
 
+  .review-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-ghost-light {
+    display: inline-block;
+    padding: 13px 26px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: background .15s ease, color .15s ease;
+    text-decoration: none;
+  }
+  .btn-ghost-light:hover { background: #fff; color: var(--ink); text-decoration: none; }
+
   /* Contact */
   .contact-grid {
     display: grid;
@@ -592,8 +605,9 @@
         <div class="rating-count">Based on 6 Facebook reviews</div>
       </div>
     </div>
-    <p class="center mt-32">
+    <p class="center mt-32 review-ctas">
       <a href="https://www.facebook.com/profile.php?id=61586582172210&sk=reviews" target="_blank" rel="noopener" class="btn">Read Reviews on Facebook</a>
+      <a href="review.html" class="btn-ghost-light">Leave a Review</a>
     </p>
   </div>
 </section>
