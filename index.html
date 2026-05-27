@@ -281,6 +281,88 @@
   .review-card blockquote { margin: 0 0 16px; font-style: italic; color: var(--ink); }
   .review-card cite { font-style: normal; font-weight: 600; color: var(--ink-soft); font-size: .9rem; }
 
+  /* Review carousel */
+  .rev-carousel { max-width: 720px; margin: 0 auto 56px; position: relative; }
+  .rev-viewport { position: relative; min-height: 260px; }
+  .rev-track { position: relative; }
+  .rev-slide {
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    padding: 40px 36px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .5s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .rev-slide.active { opacity: 1; pointer-events: auto; position: relative; }
+  .rev-stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 3px; margin-bottom: 18px; }
+  .rev-quote {
+    margin: 0 0 18px;
+    font-family: 'Georgia', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.45;
+    max-width: 580px;
+  }
+  .rev-cite {
+    display: block;
+    font-style: normal;
+    color: #c8c2b4;
+    font-weight: 600;
+    font-size: .95rem;
+  }
+  .rev-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(232,86,143,.15);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .rev-invite { color: #c8c2b4; margin: 0 0 22px; font-size: 1rem; max-width: 480px; }
+  .rev-cta {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s ease;
+  }
+  .rev-cta:hover { background: #d8417d; text-decoration: none; }
+  .rev-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .rev-dots button {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,.25);
+    cursor: pointer;
+    padding: 0;
+    transition: background .2s ease;
+  }
+  .rev-dots button.on { background: var(--accent); }
+  @media (max-width: 600px) {
+    .rev-slide { padding: 32px 22px; }
+    .rev-quote { font-size: 1.1rem; }
+  }
+
   /* Rating hero */
   .rating-hero {
     display: flex;
@@ -596,8 +678,33 @@
     <div class="section-head">
       <span class="eyebrow">Reviews</span>
       <h2>100% recommended on Facebook.</h2>
-      <p>Every review, every star. Read them yourself.</p>
+      <p>Real words from real clients. Replace any placeholder card below as reviews come in.</p>
     </div>
+
+    <div class="rev-carousel" id="rev-carousel">
+      <div class="rev-viewport">
+        <div class="rev-track" id="rev-track">
+          <!-- PLACEHOLDER: replace this single card with real reviews as they come in -->
+          <div class="rev-slide active">
+            <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="rev-quote">Be the first to leave a review.</blockquote>
+            <p class="rev-invite">Your honest words help other people find us, and they help us grow.</p>
+            <a href="review.html" class="rev-cta">Share Your Experience &rarr;</a>
+          </div>
+          <!--
+          Template for adding real reviews:
+          <div class="rev-slide">
+            <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote class="rev-quote">Quote text here.</blockquote>
+            <cite class="rev-cite">First Name L.</cite>
+            <span class="rev-tag">Declutter</span>
+          </div>
+          -->
+        </div>
+      </div>
+      <div class="rev-dots" id="rev-dots"></div>
+    </div>
+
     <div class="rating-hero">
       <div class="rating-number">100%</div>
       <div class="rating-meta">
@@ -605,6 +712,7 @@
         <div class="rating-count">Based on 6 Facebook reviews</div>
       </div>
     </div>
+
     <p class="center mt-32 review-ctas">
       <a href="https://www.facebook.com/profile.php?id=61586582172210&sk=reviews" target="_blank" rel="noopener" class="btn">Read Reviews on Facebook</a>
       <a href="review.html" class="btn-ghost-light">Leave a Review</a>
@@ -673,6 +781,35 @@
     var banner = document.getElementById('ba-banner');
     banner.addEventListener('mouseenter', stop);
     banner.addEventListener('mouseleave', start);
+    start();
+  })();
+
+  // Review carousel rotation
+  (function() {
+    var slides = document.querySelectorAll('#rev-track .rev-slide');
+    var dotsWrap = document.getElementById('rev-dots');
+    if (slides.length < 2) { return; }
+    var i = 0, timer;
+    // Build dots
+    slides.forEach(function(_, k) {
+      var b = document.createElement('button');
+      b.setAttribute('aria-label', 'Review ' + (k + 1));
+      if (k === 0) b.classList.add('on');
+      b.addEventListener('click', function() { stop(); show(k); start(); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = dotsWrap.querySelectorAll('button');
+    function show(n) {
+      slides.forEach(function(s, k) { s.classList.toggle('active', k === n); });
+      dots.forEach(function(d, k) { d.classList.toggle('on', k === n); });
+      i = n;
+    }
+    function next() { show((i + 1) % slides.length); }
+    function start() { timer = setInterval(next, 6500); }
+    function stop() { clearInterval(timer); }
+    var carousel = document.getElementById('rev-carousel');
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
     start();
   })();
 </script>
