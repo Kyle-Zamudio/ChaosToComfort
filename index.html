@@ -151,6 +151,17 @@
     margin: 0 auto;
   }
 
+  .about-quote {
+    max-width: 420px;
+    margin: 22px auto 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--ink);
+    text-align: center;
+  }
+
   /* Gallery */
   .banner-wrap { position: relative; max-width: 1100px; margin: 0 auto; }
   .banner {
@@ -469,14 +480,9 @@
     <div class="section-head">
       <span class="eyebrow">Our Services</span>
       <h2>Whatever the mess, we handle it.</h2>
-      <p>Four core services, one goal: a home that feels calm the moment you walk in.</p>
+      <p>Four core services for homes and businesses. One goal: a space that feels calm the moment you walk in.</p>
     </div>
     <div class="services">
-      <div class="service-card">
-        <div class="service-icon">&#x2728;</div>
-        <h3>Clean</h3>
-        <p>Top to bottom deep cleans. Kitchens, bathrooms, baseboards, the spots you keep meaning to get to.</p>
-      </div>
       <div class="service-card">
         <div class="service-icon">&#x1F4E6;</div>
         <h3>Declutter</h3>
@@ -486,6 +492,11 @@
         <div class="service-icon">&#x1F5C3;</div>
         <h3>Organize</h3>
         <p>Custom systems for closets, pantries, garages. Easy to maintain, built around how you actually live.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#x2728;</div>
+        <h3>Clean</h3>
+        <p>Top to bottom deep cleans. Kitchens, bathrooms, baseboards, the spots you keep meaning to get to.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#x1F69B;</div>
@@ -510,6 +521,7 @@
       </div>
       <div>
         <img class="about-img" src="assets/owner.jpg" alt="Chaos to Comfort character illustration" loading="lazy">
+        <p class="about-quote">I help transform cluttered and overwhelming situations into clean, organized and livable spaces.</p>
       </div>
     </div>
   </div>
@@ -546,17 +558,6 @@
             <img src="gallery/02-kitchen-reset-after.jpg" alt="Kitchen reset after" loading="lazy">
           </div>
           <div class="cap">Kitchen reset</div>
-        </div>
-        <div class="slide" data-slide="2">
-          <div class="half before">
-            <span class="tag">Before</span>
-            <img src="gallery/03-master-bedroom-before.jpg" alt="Master bedroom refresh before" loading="lazy">
-          </div>
-          <div class="half after">
-            <span class="tag">After</span>
-            <img src="gallery/03-master-bedroom-after.jpg" alt="Master bedroom refresh after" loading="lazy">
-          </div>
-          <div class="cap">Master bedroom refresh</div>
         </div>
         <div class="slide" data-slide="3">
           <div class="half before">
@@ -646,7 +647,6 @@
         <button data-dot="6" aria-label="Slide 7"></button>
         <button data-dot="7" aria-label="Slide 8"></button>
         <button data-dot="8" aria-label="Slide 9"></button>
-        <button data-dot="9" aria-label="Slide 10"></button>
       </div>
     </div>
     <p class="banner-cap">Tap a dot to browse, or watch it cycle.</p>
