@@ -434,6 +434,41 @@
   .contact-info p { margin-bottom: 14px; }
   .contact-info strong { color: var(--ink); }
 
+  /* Lightbox */
+  .comp-card { cursor: zoom-in; transition: transform .15s ease; }
+  .comp-card:hover { transform: translateY(-2px); }
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.92);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 10px;
+  }
+  .lightbox-close:hover { color: var(--accent); }
+
   /* Footer */
   footer { background: #1a1a1a; color: #888; padding: 40px 0; text-align: center; font-size: .9rem; }
   footer a { color: #ccc; }
@@ -540,6 +575,17 @@
         <div class="slide active" data-slide="0">
           <div class="half before">
             <span class="tag">Before</span>
+            <img src="gallery/13-garage-before.jpg" alt="Garage cleanout before" loading="lazy">
+          </div>
+          <div class="half after">
+            <span class="tag">After</span>
+            <img src="gallery/13-garage-after.jpg" alt="Garage cleanout after" loading="lazy">
+          </div>
+          <div class="cap">Garage cleanout</div>
+        </div>
+        <div class="slide" data-slide="1">
+          <div class="half before">
+            <span class="tag">Before</span>
             <img src="gallery/01-pantry-overhaul-before.jpg" alt="Pantry overhaul before" loading="lazy">
           </div>
           <div class="half after">
@@ -548,7 +594,7 @@
           </div>
           <div class="cap">Pantry overhaul</div>
         </div>
-        <div class="slide" data-slide="1">
+        <div class="slide" data-slide="2">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/02-kitchen-reset-before.jpg" alt="Kitchen reset before" loading="lazy">
@@ -562,6 +608,17 @@
         <div class="slide" data-slide="3">
           <div class="half before">
             <span class="tag">Before</span>
+            <img src="gallery/11-room-before.jpg" alt="Bedroom reset before" loading="lazy">
+          </div>
+          <div class="half after">
+            <span class="tag">After</span>
+            <img src="gallery/11-room-after.jpg" alt="Bedroom reset after" loading="lazy">
+          </div>
+          <div class="cap">Bedroom reset</div>
+        </div>
+        <div class="slide" data-slide="4">
+          <div class="half before">
+            <span class="tag">Before</span>
             <img src="gallery/04-playroom-before.jpg" alt="Playroom reset before" loading="lazy">
           </div>
           <div class="half after">
@@ -570,7 +627,7 @@
           </div>
           <div class="cap">Playroom reset</div>
         </div>
-        <div class="slide" data-slide="4">
+        <div class="slide" data-slide="5">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/05-pantry-restock-before.jpg" alt="Pantry restock before" loading="lazy">
@@ -581,7 +638,7 @@
           </div>
           <div class="cap">Pantry restock</div>
         </div>
-        <div class="slide" data-slide="5">
+        <div class="slide" data-slide="6">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/06-boys-bedroom-before.jpg" alt="Boy's bedroom before" loading="lazy">
@@ -592,7 +649,7 @@
           </div>
           <div class="cap">Boy's bedroom</div>
         </div>
-        <div class="slide" data-slide="6">
+        <div class="slide" data-slide="7">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/07-vanity-before.jpg" alt="Vanity station before" loading="lazy">
@@ -603,7 +660,7 @@
           </div>
           <div class="cap">Vanity station</div>
         </div>
-        <div class="slide" data-slide="7">
+        <div class="slide" data-slide="8">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/08-girls-bedroom-before.jpg" alt="Shared girls' bedroom before" loading="lazy">
@@ -614,7 +671,7 @@
           </div>
           <div class="cap">Shared girls' bedroom</div>
         </div>
-        <div class="slide" data-slide="8">
+        <div class="slide" data-slide="9">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/09-bedroom-corner-before.jpg" alt="Bedroom corner cleanup before" loading="lazy">
@@ -625,7 +682,7 @@
           </div>
           <div class="cap">Bedroom corner cleanup</div>
         </div>
-        <div class="slide" data-slide="9">
+        <div class="slide" data-slide="10">
           <div class="half before">
             <span class="tag">Before</span>
             <img src="gallery/10-laundry-hallway-before.jpg" alt="Laundry hallway before" loading="lazy">
@@ -635,6 +692,17 @@
             <img src="gallery/10-laundry-hallway-after.jpg" alt="Laundry hallway after" loading="lazy">
           </div>
           <div class="cap">Laundry hallway</div>
+        </div>
+        <div class="slide" data-slide="11">
+          <div class="half before">
+            <span class="tag">Before</span>
+            <img src="gallery/12-stairs-before.jpg" alt="Stairs and entry before" loading="lazy">
+          </div>
+          <div class="half after">
+            <span class="tag">After</span>
+            <img src="gallery/12-stairs-after.jpg" alt="Stairs and entry after" loading="lazy">
+          </div>
+          <div class="cap">Stairs and entry</div>
         </div>
       </div>
       <div class="banner-dots" id="ba-dots">
@@ -647,26 +715,29 @@
         <button data-dot="6" aria-label="Slide 7"></button>
         <button data-dot="7" aria-label="Slide 8"></button>
         <button data-dot="8" aria-label="Slide 9"></button>
+        <button data-dot="9" aria-label="Slide 10"></button>
+        <button data-dot="10" aria-label="Slide 11"></button>
+        <button data-dot="11" aria-label="Slide 12"></button>
       </div>
     </div>
     <p class="banner-cap">Tap a dot to browse, or watch it cycle.</p>
 
     <h3 class="comp-head">More transformations</h3>
     <div class="comp-grid">
-      <figure class="comp-card">
-        <img src="gallery/12-closet-composite.jpg" alt="Walk-in closet" loading="lazy">
+      <figure class="comp-card" data-full="gallery/22-closet-composite.jpg" tabindex="0">
+        <img src="gallery/22-closet-composite.jpg" alt="Walk-in closet" loading="lazy">
         <figcaption>Walk-in closet</figcaption>
       </figure>
-      <figure class="comp-card">
-        <img src="gallery/13-kitchen-white-composite.jpg" alt="Kitchen transformation" loading="lazy">
+      <figure class="comp-card" data-full="gallery/23-kitchen-white-composite.jpg" tabindex="0">
+        <img src="gallery/23-kitchen-white-composite.jpg" alt="Kitchen transformation" loading="lazy">
         <figcaption>Kitchen transformation</figcaption>
       </figure>
-      <figure class="comp-card">
-        <img src="gallery/15-playroom-composite.jpg" alt="Playroom makeover" loading="lazy">
+      <figure class="comp-card" data-full="gallery/25-playroom-composite.jpg" tabindex="0">
+        <img src="gallery/25-playroom-composite.jpg" alt="Playroom makeover" loading="lazy">
         <figcaption>Playroom makeover</figcaption>
       </figure>
-      <figure class="comp-card">
-        <img src="gallery/16-toy-nook-composite.jpg" alt="Toy nook" loading="lazy">
+      <figure class="comp-card" data-full="gallery/26-toy-nook-composite.jpg" tabindex="0">
+        <img src="gallery/26-toy-nook-composite.jpg" alt="Toy nook" loading="lazy">
         <figcaption>Toy nook</figcaption>
       </figure>
     </div>
@@ -762,6 +833,31 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // Lightbox
+  (function() {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    var closeBtn = lb.querySelector('.lightbox-close');
+    function open(src) {
+      lbImg.src = src;
+      lb.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.hidden = true;
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.comp-card[data-full]').forEach(function(el) {
+      el.addEventListener('click', function() { open(el.dataset.full); });
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el.dataset.full); }
+      });
+    });
+    lb.addEventListener('click', function(e) { if (e.target === lb || e.target === closeBtn) close(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+  })();
+
   // Banner rotation
   (function() {
     var slides = document.querySelectorAll('#ba-banner .slide');
@@ -814,5 +910,9 @@
   })();
 </script>
 
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" alt="">
+</div>
 </body>
 </html>
