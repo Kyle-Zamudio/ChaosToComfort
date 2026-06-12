@@ -1,6 +1,7 @@
 .claude/
 .logo.b64
 .build_gallery.py
+.add_new_gallery.py
 Before and After/
 photos/
 sizer.html
