@@ -830,6 +830,11 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" alt="">
+</div>
+
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -910,9 +915,5 @@
   })();
 </script>
 
-<div class="lightbox" id="lightbox" hidden>
-  <button class="lightbox-close" aria-label="Close">&times;</button>
-  <img id="lightbox-img" alt="">
-</div>
 </body>
 </html>
